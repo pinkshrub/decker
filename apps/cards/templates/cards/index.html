@@ -1,0 +1,17 @@
+{% extends 'cards/base.html' %}
+
+{% block content %}
+<main>
+    <h1>Yo Yo Yo</h1>
+    <form action="{% url "card-index" %}" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Make A Card">
+    </form>
+    <ul>
+        {% for card in cards %}
+        <li>{{card}}</li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock %}
